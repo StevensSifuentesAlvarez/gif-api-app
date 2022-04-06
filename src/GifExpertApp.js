@@ -1,31 +1,35 @@
 import React, { Fragment, useState } from 'react'
 import AddCategory from './components/AddCategory'
 import GifGrid from './components/GifGrid'
+import styled from 'styled-components';
 
 const GifExpertApp = () => {
     const [categories, setCategories] = useState(['One Punch'])
 
-   /*  const handleAdd = () => {
-        let newCategory = 'Doraemon'
-        setCategories([...categories, newCategory])
-        // setCategories(cats => [...cats, 'HunterXHunter'])
-    }  */
-
     return (
     <Fragment>
-        <h2>GifExpertApp</h2>
-        <AddCategory setCategories={setCategories} />
+        <Title>Gif App</Title>
         <hr />
-
-        <ol>
+        <AddCategory setCategories={setCategories} />
+        <Container>
             { 
                 categories.map(category => 
                     ( <GifGrid key={category} category={category}/> )
                 ) 
             }
-        </ol>
+        </Container>
     </Fragment>
   )
 }
+
+const Title = styled.h2({
+    textAlign: 'center',
+    fontSize: '4em',
+    marginBottom: '20px',
+})
+
+const Container = styled.ol`
+    margin: 20px 0;
+`
 
 export default GifExpertApp
