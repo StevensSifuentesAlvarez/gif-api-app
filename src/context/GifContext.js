@@ -2,11 +2,12 @@ import { createContext, useState } from 'react'
 export const GifContext = createContext()
 
 const DarkMode = {
-    bgBody: '',
-    background: '',
-    titleColor: '',
+    black: '',
+    lightBlack: '',
+    colorWhite: '',
     transform: '',
-    colorInput: '',
+    backgroundHistory: '',
+    bgItem: '',
     state: false
 }
 
@@ -16,11 +17,12 @@ export const GifProvider = ({ children }) => {
     const handleTheme = () => {
         if (!darkMode.state) {
             const newDarkMode = {
-                bgBody: 'black',
-                background: '#212121',
-                titleColor: 'white',
+                black: 'black',
+                lightBlack: '#212121',
+                colorWhite: 'white',
                 transform: 'translate(50px, 0)',
-                colorInput: 'white', 
+                backgroundHistory: '#092c4c',
+                bgItem: '#F7F3F3',
                 state: true
             }
             setDarkMode(newDarkMode)

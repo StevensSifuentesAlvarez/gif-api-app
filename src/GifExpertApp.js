@@ -1,17 +1,21 @@
 import React, { Fragment, useContext, useState } from 'react'
-import AddCategory from './components/AddCategory'
-import GifGrid from './components/GifGrid'
-import styled from 'styled-components'
-import Header from './components/Header'
-import { GifContext } from './context/GifContext'
 
-const historyCategories = ['Hunter X Hunter']
+import AddCategory from './components/form/AddCategory'
+import Header from './components/header/Header'
+import GifGrid from './components/gifGrid/GifGrid'
+import Sidebar from './components/sidebar/Sidebar'
+
+import { GifContext } from './context/GifContext'
+import { AppContainer, Container, GifContainer } from './styles'
+
+const historyCategories = []
 
 const GifExpertApp = () => {
     const { darkMode } = useContext(GifContext)
     const [categories, setCategories] = useState(['Hunter X Hunter'])
-
-    console.log(historyCategories)
+    
+    const existCategory = historyCategories.includes(categories[0].toLowerCase())
+    if(!existCategory) historyCategories.push(categories[0].toLowerCase())
 
     return (
     <Fragment>
@@ -19,27 +23,22 @@ const GifExpertApp = () => {
             <Header />
             <hr />
             <AddCategory 
-                setCategories={ setCategories } 
-                historyCategories={ historyCategories }/>
-            <Container>
-                { 
-                    categories.map(category => 
-                        ( <GifGrid key={category} category={category}/> )
-                    ) 
-                }
-            </Container>
+                setCategories={ setCategories }/>
+            <GifContainer>
+                <Container>
+                    { 
+                        categories.map(category => 
+                            ( <GifGrid key={category} category={category}/> )
+                        ) 
+                    }
+                </Container>
+                <Sidebar 
+                    historyCategories={historyCategories}
+                    setCategories={setCategories} />
+            </GifContainer>
         </AppContainer>
     </Fragment>
   )
 }
-
-const Container = styled.ol`
-    margin: 20px 0;
-`
-
-const AppContainer = styled.div`
-    padding: 40px;
-    background: ${props => props.darkMode.bgBody && props.darkMode.bgBody };
-`
 
 export default GifExpertApp

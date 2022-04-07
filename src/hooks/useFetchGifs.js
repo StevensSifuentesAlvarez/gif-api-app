@@ -15,7 +15,7 @@ export const useFetchGifs = ( category ) => {
                     data: imgs,
                     loading: false
                 })
-            }, 3000)
+            }, 2000)
          })
          .catch(console.warn)
     }, [category])
