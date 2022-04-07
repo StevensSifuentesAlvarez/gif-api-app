@@ -17,7 +17,7 @@ export const GifContainer = styled.div`
 `
 
 export const Container = styled.ol`
-    margin: 20px 0;
+    margin: 20px 0 60px 0;
     grid-column: 1 / span 3;
 `
 

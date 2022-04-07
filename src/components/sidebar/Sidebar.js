@@ -9,7 +9,7 @@ const Sidebar = ({ historyCategories, setCategories }) => {
             darkMode={darkMode}>
             <Header>
                 <p>
-                    <img src="https://img.icons8.com/office/344/time-machine--v1.png"/>
+                    <img src='https://img.icons8.com/office/344/time-machine--v1.png' alt='history-icon'/>
                     <span>History</span>
                 </p>
             </Header>

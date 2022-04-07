@@ -12,7 +12,7 @@ const historyCategories = []
 
 const GifExpertApp = () => {
     const { darkMode } = useContext(GifContext)
-    const [categories, setCategories] = useState(['Hunter X Hunter'])
+    const [categories, setCategories] = useState(['Bboy'])
     
     const existCategory = historyCategories.includes(categories[0].toLowerCase())
     if(!existCategory) historyCategories.push(categories[0].toLowerCase())
